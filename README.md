@@ -1,6 +1,8 @@
 # Gateward core API
 
-![Github License](https://img.shields.io/badge/license-AGPL_3.0-green)
+[![Github License](https://img.shields.io/badge/license-AGPL_3.0-green)](https://github.com/gateward/api/blob/main/LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/gateward/api/badge)](https://www.codefactor.io/repository/github/gateward/api)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gateward_api&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gateward_api)
 
 #### Gateward is a free and opensource simple mail/sms security forwarder
 
@@ -30,12 +32,14 @@ This project is still at an early stage of development. This is not ready for pr
 TODO
 
 ## Built With
-TODO
+- [Golang](https://go.dev/)
+- [GoTrue](https://github.com/netlify/gotrue)
+- [PostgreSQL](https://www.postgresql.org/)
 
 ## Contributing
 
 #### Issues
-In the case of a bug report, bugfix or a suggestions, please feel very free to open an issue.
+In the case of a bug report, bugfix or a suggestions, please feel very free to open an issue in the [meta repository](https://github.com/gateward/gateward/issues).
 
 #### Pull request
 Gateward is still at an early stage of development. So contributions are not accepted yet. We will open the contributions at the release of the first beta version.
@@ -52,4 +56,7 @@ This project is licensed under the [AGPL-3.0 License](https://github.com/gatewar
 This project was launched to provide a simple and free system to detect spam, scams, viruses that non-technical profiles may encounter on a daily basis. And thus increase the security of people on the Internet.
 
 ## Acknowledgements
-TODO
+
+- [Golang](https://github.com/golang/go/blob/master/LICENSE)
+- [Postgres](https://github.com/postgres/postgres/blob/master/COPYRIGHT)
+- [GoTrue](https://github.com/netlify/gotrue/blob/master/LICENSE)

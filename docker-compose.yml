@@ -1,0 +1,38 @@
+version: "3"
+services:
+
+  gotrue:
+    image: supabase/gotrue:latest
+    ports:
+      - "9999:9999"
+    environment:
+      DATABASE_URL: "postgres://postgres:postgres@db:5432/postgres?sslmode=disable"
+      GOTRUE_JWT_SECRET: "weak-dev-secret"
+      GOTRUE_JWT_EXP: 3600
+      GOTRUE_DB_DRIVER: postgres
+      DB_NAMESPACE: auth
+      API_EXTERNAL_URL: http://localhost
+      GOTRUE_API_HOST: 0.0.0.0
+      PORT: 9999
+      GOTRUE_DISABLE_SIGNUP: "false"
+      GOTRUE_SITE_URL: http://localhost
+      GOTRUE_LOG_LEVEL: DEBUG
+      GOTRUE_OPERATOR_TOKEN: weak-secret-operator-token
+      GOTRUE_EXTERNAL_PHONE_ENABLED: 'false'
+      GOTRUE_MAILER_AUTOCONFIRM: "true"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432
