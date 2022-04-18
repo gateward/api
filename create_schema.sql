@@ -3,18 +3,18 @@ CREATE SCHEMA IF NOT EXISTS auth AUTHORIZATION postgres;
 CREATE TABLE auth.users (
 	instance_id uuid NULL,
 	id uuid NOT NULL,
-	aud varchar(255) NULL,
-	"role" varchar(255) NULL,
-	email varchar(255) NULL,
-	encrypted_password varchar(255) NULL,
+	aud varchar2(255) NULL,
+	"role" varchar2(255) NULL,
+	email varchar2(255) NULL,
+	encrypted_password varchar2(255) NULL,
 	confirmed_at timestamptz NULL,
 	invited_at timestamptz NULL,
-	confirmation_token varchar(255) NULL,
+	confirmation_token varchar2(255) NULL,
 	confirmation_sent_at timestamptz NULL,
-	recovery_token varchar(255) NULL,
+	recovery_token varchar2(255) NULL,
 	recovery_sent_at timestamptz NULL,
-	email_change_token varchar(255) NULL,
-	email_change varchar(255) NULL,
+	email_change_token varchar2(255) NULL,
+	email_change varchar2(255) NULL,
 	email_change_sent_at timestamptz NULL,
 	last_sign_in_at timestamptz NULL,
 	raw_app_meta_data jsonb NULL,
@@ -30,8 +30,8 @@ CREATE INDEX users_instance_id_idx ON auth.users USING btree (instance_id);
 CREATE TABLE auth.refresh_tokens (
 	instance_id uuid NULL,
 	id bigserial NOT NULL,
-	"token" varchar(255) NULL,
-	user_id varchar(255) NULL,
+	"token" varchar2(255) NULL,
+	user_id varchar2(255) NULL,
 	revoked bool NULL,
 	created_at timestamptz NULL,
 	updated_at timestamptz NULL,
@@ -60,7 +60,7 @@ CREATE TABLE auth.audit_log_entries (
 CREATE INDEX audit_logs_instance_id_idx ON auth.audit_log_entries USING btree (instance_id);
 -- auth.schema_migrations definition
 CREATE TABLE auth.schema_migrations (
-	"version" varchar(255) NOT NULL,
+	"version" varchar2(255) NOT NULL,
 	CONSTRAINT schema_migrations_pkey PRIMARY KEY ("version")
 );
 -- Gets the User ID from the request cookie
