@@ -29,7 +29,9 @@ This project is still at an early stage of development. This is not ready for pr
 ```
 
 ### Usage
-TODO
+```console
+docker-compose up -d
+```
 
 ## Built With
 - [Golang](https://go.dev/)
@@ -60,3 +62,4 @@ This project was launched to provide a simple and free system to detect spam, sc
 - [Golang](https://github.com/golang/go/blob/master/LICENSE)
 - [Postgres](https://github.com/postgres/postgres/blob/master/COPYRIGHT)
 - [GoTrue](https://github.com/netlify/gotrue/blob/master/LICENSE)
+- [Docker Compose](https://github.com/supabase-community/gotrue-csharp/blob/master/LICENSE)
