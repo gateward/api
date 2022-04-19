@@ -8,13 +8,20 @@ func TestMigrateUsersOrgs(t *testing.T) {
 	db, _ := ConnectDB("127.0.0.1", "postgres", "postgres", "postgres", "5432")
 	MigrateUsersOrgs(db)
 
-	toTest := []string{"users", "organizations", "orgs_invits", "ahah"}
+	toTest := []string{"users", "organizations", "org_invits"}
 
 	for _, test := range toTest {
-		table_check := db.Raw("select * from " + test + ";")
+		rows, table_check := db.Raw("select * from " + test + ";").Rows()
+		defer rows.Close()
 		if table_check != nil {
-			t.Log(table_check)
+			t.Log("migration is not ok")
 			t.Fail()
 		}
+	}
+
+	_, table_check := db.Raw("select * from unexisting_table;").Rows()
+	if table_check == nil {
+		t.Log("not migrated table is working")
+		t.Fail()
 	}
 }

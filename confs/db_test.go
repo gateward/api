@@ -11,4 +11,11 @@ func TestConnectDB(t *testing.T) {
 		t.Log("failed to connect database")
 		t.Fail()
 	}
+
+	_, err = ConnectDB("127.0.0.1", "wrong", "wrong", "wrong", "5432")
+
+	if err == nil {
+		t.Log("wrong connection is ok")
+		t.Fail()
+	}
 }
