@@ -2,7 +2,7 @@ version: "3"
 services:
 
   gotrue:
-    image: supabase/gotrue:latest
+    image: ghcr.io/gateward/gotrue:v1.0.1
     ports:
       - "9999:9999"
     environment:
@@ -29,8 +29,6 @@ services:
     restart: unless-stopped
     ports:
       - "5432:5432"
-    volumes:
-      - ./create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
