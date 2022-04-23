@@ -36,7 +36,7 @@ docker-compose up -d
 ## Built With
 - [Golang](https://go.dev/)
 - [GoTrue](https://github.com/netlify/gotrue)
-- [PostgreSQL](https://www.postgresql.org/)
+- [MySQL](https://www.mysql.com/)
 
 ## Contributing
 
@@ -60,6 +60,5 @@ This project was launched to provide a simple and free system to detect spam, sc
 ## Acknowledgements
 
 - [Golang](https://github.com/golang/go/blob/master/LICENSE)
-- [Postgres](https://github.com/postgres/postgres/blob/master/COPYRIGHT)
+- [MySQL for Docker](https://github.com/docker-library/mysql/blob/master/LICENSE)
 - [GoTrue](https://github.com/netlify/gotrue/blob/master/LICENSE)
-- [Docker Compose](https://github.com/supabase-community/gotrue-csharp/blob/master/LICENSE)
