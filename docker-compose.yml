@@ -1,0 +1,36 @@
+version: "3"
+services:
+
+  gotrue:
+    image: ghcr.io/gateward/gotrue:v1.0.1
+    ports:
+      - "9999:9999"
+    environment:
+      DATABASE_URL: "mysql:mysql@tcp(db:3306)/gateward?parseTime=true&multiStatements=true"
+      GOTRUE_JWT_SECRET: "weak-dev-secret"
+      GOTRUE_JWT_EXP: 3600
+      GOTRUE_DB_DRIVER: mysql
+      DB_NAMESPACE: auth
+      API_EXTERNAL_URL: http://localhost
+      GOTRUE_API_HOST: 0.0.0.0
+      PORT: 9999
+      GOTRUE_DISABLE_SIGNUP: "false"
+      GOTRUE_SITE_URL: http://localhost
+      GOTRUE_LOG_LEVEL: DEBUG
+      GOTRUE_OPERATOR_TOKEN: weak-secret-operator-token
+      GOTRUE_EXTERNAL_PHONE_ENABLED: 'false'
+      GOTRUE_MAILER_AUTOCONFIRM: "true"
+    depends_on:
+      - "db"
+    restart: unless-stopped
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'gateward'
+      MYSQL_USER: 'mysql'
+      MYSQL_PASSWORD: 'mysql'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
