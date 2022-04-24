@@ -6,7 +6,7 @@ services:
     ports:
       - "9999:9999"
     environment:
-      DATABASE_URL: "mysql:mysql@tcp(db:3306)/gateward"
+      DATABASE_URL: "mysql:mysql@tcp(db:3306)/gateward?parseTime=true&multiStatements=true"
       GOTRUE_JWT_SECRET: "weak-dev-secret"
       GOTRUE_JWT_EXP: 3600
       GOTRUE_DB_DRIVER: mysql
@@ -21,7 +21,8 @@ services:
       GOTRUE_EXTERNAL_PHONE_ENABLED: 'false'
       GOTRUE_MAILER_AUTOCONFIRM: "true"
     depends_on:
-      - db
+      db:
+        condition: service_completed_successfully
     restart: unless-stopped
 
   db:

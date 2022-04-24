@@ -18,6 +18,8 @@ jobs:
     - uses: isbang/compose-action@v1.0.0
       with:
         compose-file: './docker-compose.yml'
+    - name: Run migrations
+      run: "sleep 30 && docker exec -it api_gotrue_1 gotrue migrate" 
     - name: Test
       run: go test -coverprofile=coverage.out -v ./...
     - uses: actions/upload-artifact@master

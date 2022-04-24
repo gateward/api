@@ -5,7 +5,7 @@ import (
 )
 
 func TestMigrateUsersOrgs(t *testing.T) {
-	db, _ := ConnectDB("127.0.0.1", "postgres", "postgres", "postgres", "5432")
+	db, _ := ConnectDB("127.0.0.1", "mysql", "mysql", "gateward", "3306")
 	MigrateUsersOrgs(db)
 
 	toTest := []string{"users", "organizations", "org_invits"}
