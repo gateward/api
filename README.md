@@ -22,6 +22,7 @@ This repository contains the golang app for the core api.
 ## Getting Started
 
 This project is still at an early stage of development. This is not ready for production yet.
+If you want to learn to install Gateward please go to [Gateward docs](https://docs.gateward.io)
 
 ### Install
 ```console
@@ -30,7 +31,8 @@ This project is still at an early stage of development. This is not ready for pr
 
 ### Usage
 ```console
-docker-compose up -d
+make start
+make run
 ```
 
 ## Built With
@@ -62,3 +64,7 @@ This project was launched to provide a simple and free system to detect spam, sc
 - [Golang](https://github.com/golang/go/blob/master/LICENSE)
 - [MySQL for Docker](https://github.com/docker-library/mysql/blob/master/LICENSE)
 - [GoTrue](https://github.com/netlify/gotrue/blob/master/LICENSE)
+- [go-env] (https://github.com/owlint/go-env)
+- [go-password-validator] (https://github.com/wagslane/go-password-validator/blob/main/LICENSE)
+- [faker] (https://github.com/bxcodec/faker/blob/master/LICENSE)
+- [testify] (https://github.com/stretchr/testify/blob/master/LICENSE)

@@ -19,7 +19,7 @@ jobs:
       with:
         compose-file: './docker-compose.yml'
     - name: Run migrations
-      run: "sleep 30 && docker exec -it api_gotrue_1 gotrue migrate" 
+      run: "sleep 60 && docker exec -it api_gotrue_1 gotrue migrate"
     - name: Test
       run: go test -coverprofile=coverage.out -v ./...
     - uses: actions/upload-artifact@master
